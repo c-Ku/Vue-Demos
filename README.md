@@ -1,6 +1,11 @@
 # React demos (with typescript) by c-Ku
 
 ---
+> Recommended workspace: Visual Studio Code
+>
+> 整理自：[三命：Vue + TypeScript 新项目起手式](https://juejin.im/post/59f29d28518825549f7260b6)
+> 最新版：[Vue-cli 整合 Typescript 筆記（05/03/2018）](https://www.zybuluo.com/c-Ku/note/1061488)
+> 按此步骤进行可保证流畅运行
 
 Based on vue-cli via typescript.
 Start your journey with the spell below:
@@ -8,11 +13,6 @@ Start your journey with the spell below:
 npm start
 ```
 
-> Recommended workspace: Visual Studio Code
->
-> 整理自：[三命：Vue + TypeScript 新项目起手式](https://juejin.im/post/59f29d28518825549f7260b6)
-> 最新版：[Vue-cli 整合 Typescript 筆記（05/03/2018）](https://www.zybuluo.com/c-Ku/note/1061488)
-> 按此步骤进行可保证流畅运行
 
 ## 初始化CLI脚手架
 ```
@@ -37,39 +37,39 @@ $ npm i ts-loader typescript tslint tslint-loader tslint-config-standard --save-
 修改 entry 入口 ts 为 js
 ```
 entry: {
-app: './src/main.ts'
+  app: './src/main.ts'
 }
 ```
 修改 resolve 以 import 时不加后缀
 ```
 resolve: {
-extensions: ['.js', '.vue', '.json', '.ts', '.tsx'],
-alias: {
-'@': resolve('src')
-}
+  extensions: ['.js', '.vue', '.json', '.ts', '.tsx'],
+  alias: {
+    '@': resolve('src')
+  }
 }
 ```
 添加对应后缀文件 loader
 ```
 module: {
-rules: [
+  rules: [
 // 从这里复制下面的代码就可以了
-{
-test: /\.ts$/,
-exclude: /node_modules/,
-enforce: 'pre',
-loader: 'tslint-loader'
-},
-{
-test: /\.tsx?$/,
-loader: 'ts-loader',
-exclude: /node_modules/,
-options: {
-appendTsSuffixTo: [/\.vue$/],
-}
-},
+    {
+      test: /\.ts$/,
+      exclude: /node_modules/,
+      enforce: 'pre',
+      loader: 'tslint-loader'
+    },
+    {
+      test: /\.tsx?$/,
+      loader: 'ts-loader',
+      exclude: /node_modules/,
+      options: {
+        appendTsSuffixTo: [/\.vue$/],
+      }
+    },
 // 复制以上的
-}
+  }
 }
 ```
 
@@ -86,10 +86,10 @@ appendTsSuffixTo: [/\.vue$/],
 意在引入 ts 的 `standard` 规范
 ```
 {
-"extends": "tslint-config-standard",
-"globals": {
-"require": true
-}
+  "extends": "tslint-config-standard",
+  "globals": {
+    "require": true
+  }
 }
 ```
 
@@ -99,8 +99,8 @@ appendTsSuffixTo: [/\.vue$/],
 意在使 typescript 识别 `.vue` 文件并交由 `vue` 模块处理
 ```
 declare module "*.vue" {
-import Vue from "vue";
-export default Vue;
+  import Vue from "vue";
+  export default Vue;
 }
 ```
 然后将文件目录下的 `js文件` 后缀改为 `.ts`
@@ -116,10 +116,10 @@ export default Vue;
 #### App.vue
 ```
 <template>
-<div id="app">
-<img src="./assets/logo.png">
-<router-view/>
-</div>
+  <div id="app">
+    <img src="./assets/logo.png">
+    <router-view/>
+  </div>
 </template>
 
 <script lang="ts">
@@ -132,12 +132,12 @@ export default class App extends Vue {}
 
 <style>
 #app {
-font-family: 'Avenir', Helvetica, Arial, sans-serif;
--webkit-font-smoothing: antialiased;
--moz-osx-font-smoothing: grayscale;
-text-align: center;
-color: #2c3e50;
-margin-top: 60px;
+  font-family: 'Avenir', Helvetica, Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-align: center;
+  color: #2c3e50;
+  margin-top: 60px;
 }
 </style>
 ```
@@ -145,9 +145,9 @@ margin-top: 60px;
 #### HellowWorld.vue
 ```
 <template>
-<div class="hello">
-<!-- omit -->
-</div>
+  <div class="hello">
+    <!-- omit -->
+  </div>
 </template>
 
 <script lang="ts">
@@ -156,7 +156,7 @@ import Component from 'vue-class-component'
 
 @Component({})
 export default class HelloWorld extends Vue {
-msg: string = 'Welcome to Your Vue.js App'
+  msg: string = 'Welcome to Your Vue.js App'
 }
 </script>
 
@@ -164,18 +164,18 @@ msg: string = 'Welcome to Your Vue.js App'
 <style scoped>
 h1,
 h2 {
-font-weight: normal;
+  font-weight: normal;
 }
 ul {
-list-style-type: none;
-padding: 0;
+  list-style-type: none;
+  padding: 0;
 }
 li {
-display: inline-block;
-margin: 0 10px;
+  display: inline-block;
+  margin: 0 10px;
 }
 a {
-color: #42b983;
+  color: #42b983;
 }
 </style>
 ```
