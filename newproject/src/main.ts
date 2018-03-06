@@ -1,5 +1,11 @@
 import App from './App.vue'
-import ElementUI, { Button, Option, Select, Switch } from 'element-ui'
+import ElementUI, {
+  Button,
+  Cascader,
+  Option,
+  Select,
+  Switch
+  } from 'element-ui'
 import router from './router'
 import Vue from 'vue'
 import 'element-ui/lib/theme-chalk/index.css'
@@ -8,10 +14,11 @@ import 'element-ui/lib/theme-chalk/index.css'
 
 Vue.config.productionTip = false
 
-Vue.use(Button)
 Vue.use(Switch)
 Vue.use(Select)
 Vue.use(Option)
+Vue.use(Button)
+Vue.use(Cascader)
 
 /* eslint-disable no-new */
 new Vue({

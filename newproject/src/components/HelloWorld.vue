@@ -82,9 +82,6 @@
     </ul>
     <h2>Element value: {{ val.toString() }}</h2>
     <p>
-      <el-button>Default</el-button>
-    </p>
-    <p>
       <el-switch
         v-model="val"
         active-color="#13ce66"
@@ -92,9 +89,9 @@
       </el-switch>
     </p>
     <p>
-      <el-select v-model="result" placeholder="Select">
+      <el-select v-model="result" placeholder="Select" :disabled="val">
         <el-option
-          v-for="option in options"
+          v-for="option in options_a"
           :key="option.value"
           :label="option.label"
           :value="option.value">
@@ -106,12 +103,32 @@
         {{ option.value }}
       </li>
     </ul>
+    <p>
+      <el-button :disabled="val">Default</el-button>
+      <el-button type="primary" :disabled="val">Primary</el-button>
+      <el-button type="success" :disabled="val">Success</el-button>
+      <el-button type="info" :disabled="val">Info</el-button>
+      <el-button type="warning" :disabled="val">Warning</el-button>
+      <el-button type="danger" :disabled="val">Danger</el-button>
+    </p>
+    <p>
+      <el-cascader
+        expand-trigger="hover"
+        :options="options_b"
+        v-model="resultCascader"
+        @change="handleChange"
+        :disabled="val"
+        style="width: 280px">
+      </el-cascader>
+    </p>
+    <p>hehe</p>
   </div>
 </template>
 
 <script lang="ts">
 import Vue from 'vue'
 import Component from 'vue-class-component'
+import cascaderOptions from './options-a'
 
 interface Option {
   value: string
@@ -122,9 +139,10 @@ interface Option {
 @Component({})
 export default class HelloWorld extends Vue {
   msg: string = 'Welcome to Your Vue.js App'
-  val: boolean = true
+  val: boolean = false
   result: string = ''
-  options: Option[] = [
+  resultCascader: string[] = []
+  options_a: Option[] = [
     {
       value: 'Stephen Chow',
       label: 'Stephen Chow',
@@ -138,6 +156,10 @@ export default class HelloWorld extends Vue {
       label: 'Fugui Wong',
     },
   ]
+  options_b = cascaderOptions
+  handleChange (val) {
+    console.log(val)
+  }
 }
 </script>
 
