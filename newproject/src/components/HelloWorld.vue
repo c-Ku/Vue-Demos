@@ -121,6 +121,10 @@
         style="width: 280px">
       </el-cascader>
     </p>
+    <div class="block" style="width: 500px; margin: auto;">
+      <span class="demonstration">Percentage: {{ result2 }}</span>
+      <el-slider v-model="result2" :show-tooltip="true"></el-slider>
+    </div>
     <p>hehe</p>
   </div>
 </template>
@@ -141,6 +145,7 @@ export default class HelloWorld extends Vue {
   msg: string = 'Welcome to Your Vue.js App'
   val: boolean = false
   result: string = ''
+  result2: number = 0
   resultCascader: string[] = []
   options_a: Option[] = [
     {
@@ -157,7 +162,7 @@ export default class HelloWorld extends Vue {
     },
   ]
   options_b = cascaderOptions
-  handleChange (val) {
+  handleChange(val) {
     console.log(val)
   }
 }
