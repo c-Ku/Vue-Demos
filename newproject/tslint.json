@@ -1,0 +1,10 @@
+{
+  "extends": "tslint-config-standard",
+  "globals": {
+    "require": true
+  },
+  "rules": {
+    "semicolon": [false, "always"],
+    "trailing-comma": [false]
+  }
+}
