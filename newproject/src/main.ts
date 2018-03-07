@@ -1,6 +1,8 @@
 import App from './App.vue'
 import router from './router'
+import store from './vuex/store'
 import Vue from 'vue'
+import Vuex from 'vuex'
 import 'element-ui/lib/theme-chalk/index.css'
 import ElementUI, {
   Button,
@@ -21,11 +23,14 @@ Vue.use(Option)
 Vue.use(Button)
 Vue.use(Cascader)
 Vue.use(Slider)
+Vue.use(Vuex)
 
 /* eslint-disable no-new */
+
 new Vue({
   el: '#app',
   router,
   components: { App },
   template: '<App/>',
+  store,
 })

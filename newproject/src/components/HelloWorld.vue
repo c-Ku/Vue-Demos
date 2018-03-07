@@ -99,7 +99,7 @@
       </el-select>
     </p>
     <ul id="example-1">
-      <li v-for="option in options" :key="option.value">
+      <li v-for="option in options_a" :key="option.value">
         {{ option.value }}
       </li>
     </ul>
@@ -121,9 +121,14 @@
         style="width: 280px">
       </el-cascader>
     </p>
-    <div class="block" style="width: 500px; margin: auto;">
+    <div style="width: 500px; margin: auto;">
       <span class="demonstration">Percentage: {{ result2 }}</span>
       <el-slider v-model="result2" :show-tooltip="true"></el-slider>
+    </div>
+    <div>
+      <el-button round @click="increment">-</el-button>
+      {{vuexCount}}
+      <el-button round @click="decrement">+</el-button>
     </div>
     <p>hehe</p>
   </div>
@@ -131,6 +136,7 @@
 
 <script lang="ts">
 import Vue from 'vue'
+import { mapState, mapActions } from 'vuex'
 import Component from 'vue-class-component'
 import cascaderOptions from './options-a'
 
@@ -162,6 +168,11 @@ export default class HelloWorld extends Vue {
     },
   ]
   options_b = cascaderOptions
+  computed = mapState(['vuexCount'])
+  methods = {
+    ...mapActions(['increment', 'decrement'])
+  }
+  count = this.computed
   handleChange(val) {
     console.log(val)
   }
@@ -184,5 +195,8 @@ li {
 }
 a {
   color: #42b983;
+}
+.block{
+  display: inline-block;
 }
 </style>
