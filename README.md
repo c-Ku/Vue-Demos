@@ -13,6 +13,7 @@ Start your journey with the spell below:
 npm start
 ```
 
+You may need [Element](http://element.eleme.io/#/en-US/component/quickstart)
 
 ## 初始化CLI脚手架
 ```
