@@ -1,10 +1,10 @@
 import store from './store'
 
 export default {
-  increment() {
+  increment () {
     store.commit('increment')
   },
-  decrement() {
+  decrement () {
     store.commit('decrement')
   },
 }
