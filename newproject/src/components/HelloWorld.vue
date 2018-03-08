@@ -80,7 +80,15 @@
         </a>
       </li>
     </ul>
-    <router-link to="/Page">Turn to element example</router-link>
+    <p>
+      <router-link to="/Page">Turn to element example</router-link>
+    </p>
+    <p>
+      <router-link to="/Props/Hehe">Turn to element Props page: Hehe</router-link>
+    </p>
+    <p>
+      <router-link to="/Props/Suck">Turn to element Props page: Suck</router-link>
+    </p>
   </div>
 </template>
 
