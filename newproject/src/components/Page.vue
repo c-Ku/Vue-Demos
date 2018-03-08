@@ -51,7 +51,7 @@
       <el-button round @click="increment">+</el-button>
     </div>
     <p>hehe</p>
-    <el-button @click="goBack">Go Back</el-button>
+    <el-button type="text" @click="goBack">Go Back</el-button>
   </div>
 </template>
 

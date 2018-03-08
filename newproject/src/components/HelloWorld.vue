@@ -80,19 +80,13 @@
         </a>
       </li>
     </ul>
-    <a v-link="{path: '/Page'}"> Turn to page example. </a>
+    <router-link to="/Page">Turn to element example</router-link>
   </div>
 </template>
 
 <script lang="ts">
 import Vue from 'vue'
 import Component from 'vue-class-component'
-
-interface Option {
-  value: string
-  label: string
-  disabled?: boolean
-}
 
 @Component({})
 export default class HelloWorld extends Vue {
