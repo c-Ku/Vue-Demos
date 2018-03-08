@@ -8,6 +8,7 @@
         inactive-color="#ff4949">
       </el-switch>
     </p>
+
     <p>
       <el-select v-model="result" placeholder="Select" :disabled="val">
         <el-option
@@ -18,11 +19,7 @@
         </el-option>
       </el-select>
     </p>
-    <ul id="example-1">
-      <li v-for="option in options_a" :key="option.value">
-        {{ option.value }}
-      </li>
-    </ul>
+
     <p>
       <el-button :disabled="val">Default</el-button>
       <el-button type="primary" :disabled="val">Primary</el-button>
@@ -31,6 +28,7 @@
       <el-button type="warning" :disabled="val">Warning</el-button>
       <el-button type="danger" :disabled="val">Danger</el-button>
     </p>
+
     <p>
       <el-cascader
         expand-trigger="hover"
@@ -41,6 +39,7 @@
         style="width: 280px">
       </el-cascader>
     </p>
+
     <div style="width: 500px; margin: auto;">
       <span class="demonstration">Percentage: {{ result2 }}</span>
       <el-slider v-model="result2" :show-tooltip="true"></el-slider>
@@ -50,7 +49,24 @@
       {{vuexCount}}
       <el-button round @click="increment">+</el-button>
     </div>
-    <p>hehe</p>
+
+    <div v-if="val">
+      <ul id="example-1">
+        <li v-for="option in options_a" :key="option.value">
+          {{ option.value }}
+        </li>
+      </ul>
+    </div>
+    <div v-else>
+      <ul id="example-2">
+        <li v-for="option in options_c" :key="option.value">
+          {{ option.value }}
+        </li>
+      </ul>
+    </div>
+
+    <p v-show="!val">value: {{ result }}</p>
+
     <el-button type="text" @click="goBack">Go Back</el-button>
   </div>
 </template>
@@ -96,6 +112,20 @@ export default class HelloWorld extends Vue {
     },
   ]
   options_b = cascaderOptions
+  options_c: Option[] = [
+    {
+      value: '라영호（罗永浩）',
+      label: '라영호',
+    },
+    {
+      value: '김성（金星）',
+      label: '김성',
+    },
+    {
+      value: '최건（崔健）',
+      label: '최건',
+    },
+  ]
   handleChange(val) {
     console.log(val)
   }
