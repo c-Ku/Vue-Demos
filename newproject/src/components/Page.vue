@@ -52,15 +52,15 @@
 
     <div v-if="val">
       <ul id="example-1">
-        <li v-for="option in options_a" :key="option.value">
-          {{ option.value }}
+        <li v-for="(option, index) in options_a" :key="option.value">
+          {{ index + 1 }}. {{ option.value }}
         </li>
       </ul>
     </div>
     <div v-else>
       <ul id="example-2">
-        <li v-for="option in options_c" :key="option.value">
-          {{ option.value }}
+        <li v-for="(option, index) in options_c" :key="option.value">
+          {{ index + 1 }}. {{ option.value }}
         </li>
       </ul>
     </div>

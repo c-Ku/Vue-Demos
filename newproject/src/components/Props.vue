@@ -1,6 +1,7 @@
 <template>
   <div class="hello">
     <h2>{{ $route.params.id }}</h2>
+    <PropsChild :msg="$route.params.id" />
     <p>
       <router-link to="/Page">Turn to element example</router-link>
     </p>
@@ -13,8 +14,13 @@
 <script lang="ts">
 import Vue from 'vue'
 import Component from 'vue-class-component'
+import PropsChild from './PropsChild.vue'
 
-@Component({})
+@Component({
+  components: {
+    PropsChild
+  }
+})
 export default class Props extends Vue {}
 </script>
 
@@ -36,10 +42,7 @@ a {
   color: #42b983;
   text-decoration: none;
   &:hover {
-    color: dodgerblue
+    color: dodgerblue;
   }
-}
-.block{
-  display: inline-block;
 }
 </style>
